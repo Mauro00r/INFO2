@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+union campo2char{
+	struct cm{
+		char en:1;
+		char res:1;
+		char cuenta:6;
+		}campo;
+	char c;
+}c1;
+
+void number_to_binary(char x);
+
+int main(int argc, char *argv[]) {
+	
+	c1.campo.res=1;
+	c1.campo.res=0;
+	c1.campo.en=1;
+	for(int i=0;i<100;i++){}
+	c1.campo.en=1;
+	int c=c1.campo.cuenta;
+	number_to_binary(c1.c);
+	return 0;
+}
+
+void number_to_binary(char x){
+	char b[9];
+	b[8]='\0';
+	
+	char z;
+	int w=0;
+	for(z=1;w<8;z<<=1,++w){
+		b[w]=((x & z) == z ) ? '1' : '0';
+	}
+	printf("%s",b);
+}
